@@ -555,7 +555,7 @@ class _Header extends StatelessWidget {
     final complete = total > 0 && done == total;
     return Container(
       color: AppColors.primary,
-      padding: const EdgeInsets.fromLTRB(20, 4, 20, 20),
+      padding: const EdgeInsets.fromLTRB(20, 2, 20, 14),
       child: _Centered(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -606,7 +606,7 @@ class _Header extends StatelessWidget {
                 duration: const Duration(milliseconds: 500),
                 builder: (_, v, _) => LinearProgressIndicator(
                   value: v,
-                  minHeight: 16,
+                  minHeight: 12,
                   color: complete ? AppColors.accent : Colors.white,
                   backgroundColor: Colors.white.withValues(alpha: 0.25),
                 ),
@@ -696,7 +696,7 @@ class _NowCard extends StatelessWidget {
     final s = S.of(context);
     final goal = item['goal'] as Map<String, dynamic>;
     return Container(
-      padding: const EdgeInsets.all(18),
+      padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: const Color(0xFFFFF8E6),
         borderRadius: BorderRadius.circular(kRadius),
@@ -884,7 +884,7 @@ class _GoalRow extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         onTap: onToggle,
         child: Container(
-          constraints: const BoxConstraints(minHeight: 84),
+          constraints: const BoxConstraints(minHeight: 66),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             border: Border.all(
@@ -955,8 +955,8 @@ class _CheckCircle extends StatelessWidget {
       checked: done,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
-        width: 52,
-        height: 52,
+        width: 44,
+        height: 44,
         decoration: BoxDecoration(
           color: done ? AppColors.ok : Colors.white,
           shape: BoxShape.circle,
@@ -966,7 +966,7 @@ class _CheckCircle extends StatelessWidget {
           ),
         ),
         child: done
-            ? const Icon(Icons.check_rounded, color: Colors.white, size: 36)
+            ? const Icon(Icons.check_rounded, color: Colors.white, size: 30)
             : null,
       ),
     );

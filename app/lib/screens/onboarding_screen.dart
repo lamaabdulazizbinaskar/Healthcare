@@ -518,7 +518,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               DoctorSays(
                 text: _qt(q, s),
                 sub: help.isEmpty ? null : help,
-                size: 76,
+                size: 60,
               ),
               Align(
                 alignment: AlignmentDirectional.centerStart,

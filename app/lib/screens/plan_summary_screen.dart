@@ -108,7 +108,7 @@ class PlanSummaryScreen extends StatelessWidget {
               DoctorSays(
                 text: s.t('plan_ready'),
                 sub: summary.isEmpty ? null : summary,
-                size: 96,
+                size: 76,
               ),
               if (insights.isNotEmpty) ...[
                 const SizedBox(height: 8),

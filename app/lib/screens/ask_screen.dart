@@ -92,7 +92,7 @@ class _AskScreenState extends State<AskScreen> {
             controller: _scroll,
             padding: const EdgeInsets.fromLTRB(16, 16, 16, 12),
             children: [
-              DoctorSays(text: s.t('ask_title'), sub: s.t('ask_sub'), size: 80),
+              DoctorSays(text: s.t('ask_title'), sub: s.t('ask_sub'), size: 64),
               const SizedBox(height: 8),
               if (_messages.isEmpty) ...[
                 Text(

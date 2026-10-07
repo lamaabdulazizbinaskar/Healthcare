@@ -47,7 +47,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 Text(
                   s.t('app_name'),
                   style: const TextStyle(
-                    fontSize: 46,
+                    fontSize: 40,
                     fontWeight: FontWeight.w900,
                     color: Colors.white,
                     height: 1.1,

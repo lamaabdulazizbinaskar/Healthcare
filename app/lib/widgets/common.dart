@@ -9,7 +9,7 @@ class AppCard extends StatelessWidget {
   const AppCard({
     super.key,
     required this.child,
-    this.padding = const EdgeInsets.all(18),
+    this.padding = const EdgeInsets.all(14),
     this.color,
     this.border,
   });
@@ -42,7 +42,7 @@ class SectionTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-    padding: const EdgeInsets.fromLTRB(4, 22, 4, 10),
+    padding: const EdgeInsets.fromLTRB(4, 16, 4, 8),
     child: Row(
       children: [
         Expanded(
@@ -121,7 +121,7 @@ class _RoundButton extends StatelessWidget {
     required this.icon,
     required this.onPressed,
     this.filled = false,
-    this.size = 64,
+    this.size = 54,
   });
   final IconData icon;
   final VoidCallback onPressed;
@@ -233,7 +233,7 @@ class NumberStepper extends StatelessWidget {
                       Text(
                         '${value.round()}',
                         style: const TextStyle(
-                          fontSize: 46,
+                          fontSize: 40,
                           fontWeight: FontWeight.w900,
                           height: 1.1,
                         ),
@@ -316,7 +316,7 @@ class NumberTile extends StatelessWidget {
               child: Text(
                 '${value.round()}',
                 style: TextStyle(
-                  fontSize: 52,
+                  fontSize: 42,
                   fontWeight: FontWeight.w900,
                   color: color ?? AppColors.ink,
                   height: 1.15,
@@ -329,13 +329,13 @@ class NumberTile extends StatelessWidget {
             children: [
               _RoundButton(
                 icon: Icons.remove_rounded,
-                size: 54,
+                size: 46,
                 onPressed: () => onChanged((value - 1).clamp(min, max)),
               ),
               const SizedBox(width: 12),
               _RoundButton(
                 icon: Icons.add_rounded,
-                size: 54,
+                size: 46,
                 filled: true,
                 onPressed: () => onChanged((value + 1).clamp(min, max)),
               ),
@@ -385,7 +385,7 @@ class ChoiceTile extends StatelessWidget {
           onTap: enabled ? onTap : null,
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 150),
-            constraints: const BoxConstraints(minHeight: 74),
+            constraints: const BoxConstraints(minHeight: 60),
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
@@ -399,11 +399,11 @@ class ChoiceTile extends StatelessWidget {
                 if (image != null) ...[
                   Opacity(
                     opacity: enabled ? 1 : 0.45,
-                    child: Img3DBadge(image!, color: color, size: 52),
+                    child: Img3DBadge(image!, color: color, size: 44),
                   ),
                   const SizedBox(width: 14),
                 ] else if (icon != null) ...[
-                  IconBadge(icon: icon!, color: color, size: 48),
+                  IconBadge(icon: icon!, color: color, size: 42),
                   const SizedBox(width: 14),
                 ],
                 Expanded(
@@ -458,8 +458,8 @@ class _SelectMark extends StatelessWidget {
     final radius = multi ? BorderRadius.circular(9) : BorderRadius.circular(20);
     return AnimatedContainer(
       duration: const Duration(milliseconds: 150),
-      width: 34,
-      height: 34,
+      width: 30,
+      height: 30,
       decoration: BoxDecoration(
         color: selected ? AppColors.primary : Colors.white,
         borderRadius: radius,
@@ -504,7 +504,7 @@ class SegmentedPills extends StatelessWidget {
                 onTap: () => onChanged(i),
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 180),
-                  height: 52,
+                  height: 44,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: i == index ? AppColors.primary : Colors.transparent,

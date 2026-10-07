@@ -97,7 +97,7 @@ class _HomeShellState extends State<HomeShell> {
     };
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 78,
+        toolbarHeight: 64,
         backgroundColor: AppColors.primary,
         foregroundColor: Colors.white,
         titleSpacing: 20,

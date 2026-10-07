@@ -35,9 +35,12 @@ class KhutwaApp extends StatelessWidget {
       builder: (context, child) => MediaQuery(
         // Respect the user's OS font scaling but never go below our large base sizes.
         data: MediaQuery.of(context).copyWith(
-          textScaler: MediaQuery.of(
-            context,
-          ).textScaler.clamp(minScaleFactor: 1.0, maxScaleFactor: 1.6),
+          // Base design is ~15% smaller than our first version; the user's own OS text
+          // size setting still scales it up (to 1.4x) for readability.
+          textScaler: TextScaler.linear(
+            kTextScale *
+                MediaQuery.of(context).textScaler.scale(1).clamp(1.0, 1.4),
+          ),
         ),
         child: child!,
       ),

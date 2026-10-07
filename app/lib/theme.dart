@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 /// style — app bar, buttons, tabs — must name it, or Arabic falls back to a font without glyphs.
 const kFont = 'Tajawal';
 
+/// Global text scale applied in main.dart (all font sizes in the code are multiplied by it).
+const kTextScale = 0.85;
+
 /// Design tokens. Warm, calm palette with high-contrast text for older eyes.
 class AppColors {
   static const primary = Color(0xFF0F6B5A); // deep teal-green
@@ -85,7 +88,7 @@ class CategoryStyle {
       const CategoryStyle(AppColors.primary, Icons.flag_rounded, 'target');
 }
 
-const kRadius = 22.0;
+const kRadius = 18.0;
 const kShadow = [
   BoxShadow(color: Color(0x12000000), blurRadius: 18, offset: Offset(0, 6)),
 ];
@@ -150,7 +153,7 @@ ThemeData buildTheme() {
     ),
     filledButtonTheme: FilledButtonThemeData(
       style: FilledButton.styleFrom(
-        minimumSize: const Size(double.infinity, 64),
+        minimumSize: const Size(double.infinity, 54),
         textStyle: const TextStyle(
           fontFamily: kFont,
           fontSize: 21,
@@ -162,7 +165,7 @@ ThemeData buildTheme() {
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
-        minimumSize: const Size(double.infinity, 64),
+        minimumSize: const Size(double.infinity, 54),
         foregroundColor: AppColors.primary,
         backgroundColor: Colors.white,
         side: const BorderSide(color: AppColors.primary, width: 2),
@@ -175,7 +178,7 @@ ThemeData buildTheme() {
       ),
     ),
     navigationBarTheme: NavigationBarThemeData(
-      height: 84,
+      height: 70,
       elevation: 0,
       backgroundColor: Colors.white,
       surfaceTintColor: Colors.white,
