@@ -16,6 +16,8 @@ from .claude_client import AIError
 log = logging.getLogger("lifestep.ai")
 
 _URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+# Google retires model versions; this alias always points to the current Flash model.
+_FALLBACK_MODEL = "gemini-flash-latest"
 
 
 def _text(content: Union[str, List[Dict[str, Any]]]) -> str:
@@ -26,12 +28,16 @@ def _text(content: Union[str, List[Dict[str, Any]]]) -> str:
 
 def _post(model: str, body: Dict[str, Any]) -> httpx.Response:
     try:
-        return httpx.post(
+        r = httpx.post(
             _URL.format(model=model),
             headers={"x-goog-api-key": config.GEMINI_API_KEY},
             json=body,
             timeout=90.0,
         )
+        if r.status_code == 404 and model != _FALLBACK_MODEL:
+            log.warning("Gemini model %s not found, using %s", model, _FALLBACK_MODEL)
+            return _post(_FALLBACK_MODEL, body)
+        return r
     except httpx.HTTPError as e:
         raise AIError("Could not reach the Gemini API") from e
 

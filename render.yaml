@@ -27,4 +27,4 @@ services:
       - key: GEMINI_API_KEY
         sync: false   # free key from aistudio.google.com; used when ANTHROPIC_API_KEY is empty
       - key: GEMINI_MODEL
-        value: gemini-2.5-flash
+        value: gemini-flash-latest
