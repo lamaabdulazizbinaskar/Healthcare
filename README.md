@@ -1,10 +1,10 @@
 # LifeStep · خطوة حياة
 
-**Small daily steps for better blood pressure and blood sugar.**
-An AI-powered lifestyle app for adults in Saudi Arabia with **high blood pressure, type 2 (or 1) diabetes,
-or both**. It asks about the patient's health first, then turns two clinical guidelines into a personal
-daily / weekly / monthly checklist that explains *why* each step matters, suggests what to eat, tracks
-readings, and keeps adapting.
+**A personal lifestyle coach for people living with chronic disease.**
+Lifestyle is a core part of treating chronic diseases, yet most patients are never shown how to change it.
+LifeStep asks about the patient's condition and daily habits, builds a personal lifestyle plan, and follows
+up with them every day. We started with **diabetes and high blood pressure** (for adults in Saudi Arabia),
+based on the main clinical guidelines for each, and built it so more conditions can be added later.
 
 *ForgeHacks, AI + Healthcare track: "make healthcare information clearer, more accessible, and easier to act on."*
 
@@ -25,9 +25,32 @@ short team-written summaries with citations (`knowledge/`). Ask ADA (permissions
 before any non-educational use.
 
 ## The problem
-Patients hear "change your lifestyle" but don't know what that means on a Tuesday morning, especially
-older patients managing both diabetes and blood pressure. Lifestyle change works (DASH ≈ −11 mmHg; sodium
-reduction ≈ −5/6 mmHg; 5–7% weight loss improves glucose), but only when it becomes concrete, safe and tracked.
+For chronic diseases like diabetes and high blood pressure, medicine is only part of the treatment. Food,
+activity, sleep and daily habits matter just as much. Doctors tell patients to "change your lifestyle", but in
+a short visit there's rarely time to explain what that means for this person. Patients go home with questions:
+How much salt is too much? Is walking safe with bad knees? What do I do if my sugar drops?
+
+Most health apps don't help much. They give everyone the same advice, they're usually in English, and they
+don't say where the advice comes from.
+
+**Who it's for:** adults in Saudi Arabia living with high blood pressure, type 2 diabetes, or both, especially
+older patients, and the family members who help care for them.
+
+## Our solution
+1. **It asks first.** A short health interview covers the condition, medicines, habits and any limits like
+   joint pain or risk of falling. Each question shows why it is asked and which guideline it comes from.
+2. **It builds a plan.** The answers become a personal daily, weekly and monthly checklist. Every step
+   explains why it matters and cites its source.
+3. **It follows up.** The patient ticks off goals and logs blood pressure and blood sugar. If they keep
+   missing a goal, the app asks what got in the way and makes the goal easier. If they're doing well, it
+   offers the next step.
+4. **It keeps them safe.** Dangerous readings or warning symptoms show an alert straight away.
+
+## Impact
+- **Makes lifestyle change doable:** small, clear daily steps in the patient's own language instead of general advice.
+- **Builds trust:** every recommendation shows its guideline source.
+- **Stays with the patient:** the plan changes as they progress instead of staying the same.
+- **Helps the doctor:** the monthly report gives real data from home, which makes short clinic visits more useful.
 
 ## Features
 
@@ -155,9 +178,12 @@ and **not clinically validated**; team-authored meal ideas and Saudi examples ne
 - Demo auth (`X-User-Id`) is not secure; use `KHUTWA_AUTH=firebase` for anything beyond a demo.
 - ADA/ACC permission is needed for non-educational use of their content.
 
-## Future work
-Heart-failure module; Ramadan-mode plan (IDF-DAR risk score with clinician); CGM import; voice input and
-read-aloud; clinician dashboard; validated Arabic questionnaires.
+## What's next
+LifeStep is built so a new condition can be added as a new module with its own guideline and rules
+(`backend/app/diseases/`). Next we want to add heart failure and kidney disease, a Ramadan fasting plan
+(with clinicians), connections to glucose and blood pressure devices, voice input and read-aloud, and a
+dashboard for clinicians. Before use with real patients, the rules need review by doctors and testing with
+older patients.
 
 ## Tech stack
 Flutter 3 web (fl_chart, image assets: Microsoft Fluent Emoji 3D – MIT; Tajawal font – OFL) · Python FastAPI ·
