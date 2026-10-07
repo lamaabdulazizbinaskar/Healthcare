@@ -46,7 +46,8 @@ reduction ≈ −5/6 mmHg; 5–7% weight loss improves glucose), but only when i
 | 11 | Water tracker; Arabic-first RTL UI with English; elderly-friendly design; demo patient with 4 weeks of data. |
 
 ## Live demo (website)
-**Link:** _add your Render link here_ (e.g. `https://khutwa.onrender.com`). Open it and tap **Try the demo patient**.
+**Link: https://khutwa-imww.onrender.com** · open it and tap **Try the demo patient**.
+(Free hosting: the first visit after a quiet period can take ~1 minute to wake up.)
 Hosting: `render.yaml` (Render free web service) serves the API and the pre-built website in `deploy/web/`.
 After changing the website code, run `./scripts/build_web.sh` and commit `deploy/web`.
 
