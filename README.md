@@ -34,7 +34,7 @@ reduction ≈ −5/6 mmHg; 5–7% weight loss improves glucose), but only when i
 | | Feature |
 |---|---|
 | 1 | **Health interview first.** A 3D doctor guide asks one question per screen (≈ 20 of 33, depending on condition). Every question has **"Why do we ask this?"** with its guideline source. Diabetes questions appear only with diabetes; BP questions only with hypertension. |
-| 2 | **Personal lifestyle plan** built from the answers by **22 tested rules** (R1–R22), then worded by Claude, with a "built from your history" explanation and source for every decision. |
+| 2 | **Personal lifestyle plan** built from the answers by **22 tested rules** (R1–R22), then worded by the AI (Gemini or Claude), with a "built from your history" explanation and source for every decision. |
 | 3 | **Checklist**: today grouped by morning / afternoon / evening, plus week and month. Big tick rows; ⓘ shows why, how it was tailored, and the source. |
 | 4 | **The app asks you**: an "It's time — have you done this?" card for the goal due now. |
 | 5 | **The plan keeps changing**: a goal missed 3 days → "what got in the way?" → made easier; done 6 of 7 days → "ready for the next step?" → stepped up. |
@@ -61,10 +61,10 @@ Open **http://localhost:8000** → **Try the demo patient** (68 y, type 2 diabet
 
 ### Turn on the AI (required for the "AI-powered" parts)
 ```bash
-cp backend/.env.example backend/.env    # then set ANTHROPIC_API_KEY=sk-ant-...
+cp backend/.env.example backend/.env    # then set GEMINI_API_KEY (free, aistudio.google.com) or ANTHROPIC_API_KEY
 SKIP_WEB_BUILD=1 ./run.sh
 ```
-The welcome screen shows **"Powered by Claude AI"** when the key is active (otherwise "Demo mode",
+The welcome screen shows **"Powered by AI"** when a key is active (otherwise "Demo mode",
 which uses fixed templates, still grounded in the same sources).
 
 ### Developer mode
@@ -111,7 +111,7 @@ flowchart LR
     direction TB
     K1["knowledge/hypertension (ACC/AHA) · knowledge/diabetes (ADA)"]
     K2["Local TF-IDF retrieval per condition"]
-    K3["Claude: plan wording, adaptation, Ask LifeStep"]
+    K3["LLM (Gemini / Claude): plan wording, adaptation, Ask LifeStep"]
     K4["Grounding guard: drop goals citing un-allowed entries"]
   end
   subgraph SAFE["🚨 Safety engine (no AI)"]
@@ -128,7 +128,7 @@ flowchart LR
   FE --> API --> RULES --> AI
   API --> SAFE
   API --> DATA
-  AI -- "Anthropic API" --> C[("Claude")]
+  AI -- "Gemini API / Anthropic API" --> C[("LLM")]
 ```
 
 ## How AI is used, and what it never does
@@ -138,7 +138,8 @@ flowchart LR
 | Adapts a goal to the patient's reason, or steps it up | When to ask (3 misses / 6 of 7 days) |
 | Answers patient questions from the guideline summaries | Emergencies (BP, glucose, symptoms), pregnancy, medicine-dose questions |
 
-Claude model: `claude-opus-5-5`, structured outputs, server-side refusal fallback; key from `ANTHROPIC_API_KEY` only.
+AI provider: **Google Gemini** (`gemini-flash-latest`, free tier, JSON-schema output; key from `GEMINI_API_KEY`) on the live demo.
+Claude (`claude-opus-5-5`, structured outputs) is used instead when `ANTHROPIC_API_KEY` is set. Keys come from environment variables only.
 Any AI error falls back to the offline templates.
 
 ## Reliability
@@ -160,4 +161,4 @@ read-aloud; clinician dashboard; validated Arabic questionnaires.
 
 ## Tech stack
 Flutter 3 web (fl_chart, image assets: Microsoft Fluent Emoji 3D – MIT; Tajawal font – OFL) · Python FastAPI ·
-Anthropic Claude API · local TF-IDF retrieval · Firebase (optional) · fpdf2.
+Google Gemini API / Anthropic Claude API · local TF-IDF retrieval · Firebase (optional) · fpdf2.
