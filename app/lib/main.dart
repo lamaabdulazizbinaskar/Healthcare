@@ -11,17 +11,17 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initializeDateFormatting(); // Arabic + English day/month names
   final state = AppState()..init();
-  runApp(AppScope(state: state, child: const KhutwaApp()));
+  runApp(AppScope(state: state, child: const LifeStepApp()));
 }
 
-class KhutwaApp extends StatelessWidget {
-  const KhutwaApp({super.key});
+class LifeStepApp extends StatelessWidget {
+  const LifeStepApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     final state = AppScope.of(context);
     return MaterialApp(
-      title: 'Khutwa',
+      title: 'LifeStep',
       debugShowCheckedModeBanner: false,
       theme: buildTheme(),
       // Arabic locale => Flutter lays out the whole UI right-to-left automatically.

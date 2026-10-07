@@ -12,7 +12,7 @@ from ..rag.retriever import get_entry, retrieve, retrieve_for_profile
 from . import mock_ai, prompts
 from .claude_client import AIError, structured_call
 
-log = logging.getLogger("khutwa.plan")
+log = logging.getLogger("lifestep.plan")
 
 _MAX = {"daily": 7, "weekly": 4, "monthly": 3}  # mock caps daily at 6 (7 for "both")
 _TIMES = {"morning", "afternoon", "evening", "anytime"}

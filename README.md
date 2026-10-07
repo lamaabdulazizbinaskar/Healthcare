@@ -1,4 +1,4 @@
-# Khutwa · خطوة
+# LifeStep · خطوة حياة
 
 **Small daily steps for better blood pressure and blood sugar.**
 An AI-powered lifestyle app for adults in Saudi Arabia with **high blood pressure, type 2 (or 1) diabetes,
@@ -8,7 +8,7 @@ readings, and keeps adapting.
 
 *ForgeHacks, AI + Healthcare track: "make healthcare information clearer, more accessible, and easier to act on."*
 
-> ⚠️ **Not for clinical use.** Khutwa supports, and does not replace, the doctor's plan. Guideline summaries
+> ⚠️ **Not for clinical use.** LifeStep supports, and does not replace, the doctor's plan. Guideline summaries
 > were written by the team and **must be checked by a clinician** against the original documents.
 
 ## The two reference documents (the only sources)
@@ -20,7 +20,7 @@ readings, and keeps adapting.
 
 Every question, rule, goal, meal idea and AI answer cites one of these (section, recommendation or table
 number). **Licensing:** neither PDF is in this repo. The ADA document may not be reproduced or used for
-text/data mining or machine learning without permission, so Khutwa never sends ADA text to the AI; it uses
+text/data mining or machine learning without permission, so LifeStep never sends ADA text to the AI; it uses
 short team-written summaries with citations (`knowledge/`). Ask ADA (permissions@diabetes.org) and ACC
 before any non-educational use.
 
@@ -41,7 +41,7 @@ reduction ≈ −5/6 mmHg; 5–7% weight loss improves glucose), but only when i
 | 6 | **What to eat**: breakfast / lunch / dinner / snack ideas (Saudi dishes made healthier), "Another idea", drinks and foods to limit. Filtered by condition and medicines. Replaces the meal photo. |
 | 7 | **Readings**: blood pressure and/or blood sugar logging with trend charts. |
 | 8 | **Safety (rules, not AI)**: BP ≥ 180/120 or warning symptoms → full-screen 997 alert; glucose < 70 → treat & recheck in 15 min; < 54 or confused/fainted → urgent/emergency; pregnancy → no plan, see doctor. |
-| 9 | **Ask Khutwa (AI)**: questions in Arabic/English ("Can I eat kabsa?", "Does cinnamon lower sugar?") answered only from the guideline summaries, with sources. Emergencies and medicine-dose questions are handled by fixed rules. |
+| 9 | **Ask LifeStep (AI)**: questions in Arabic/English ("Can I eat kabsa?", "Does cinnamon lower sugar?") answered only from the guideline summaries, with sources. Emergencies and medicine-dose questions are handled by fixed rules. |
 | 10 | **Monthly doctor report**: adherence, BP and glucose summaries, plan changes, one-page PDF. |
 | 11 | Water tracker; Arabic-first RTL UI with English; elderly-friendly design; demo patient with 4 weeks of data. |
 
@@ -93,7 +93,7 @@ flowchart LR
     F1["Health interview (rendered from /api/intake)"]
     F2["Checklist: time-of-day groups, Now card, adapt prompts"]
     F3["Readings: BP + glucose, charts"]
-    F4["Food guide · Ask Khutwa · Report"]
+    F4["Food guide · Ask LifeStep · Report"]
     F5["Emergency screen + offline rule mirror"]
   end
   subgraph API["⚙️ Backend API (FastAPI)"]
@@ -111,7 +111,7 @@ flowchart LR
     direction TB
     K1["knowledge/hypertension (ACC/AHA) · knowledge/diabetes (ADA)"]
     K2["Local TF-IDF retrieval per condition"]
-    K3["Claude: plan wording, adaptation, Ask Khutwa"]
+    K3["Claude: plan wording, adaptation, Ask LifeStep"]
     K4["Grounding guard: drop goals citing un-allowed entries"]
   end
   subgraph SAFE["🚨 Safety engine (no AI)"]

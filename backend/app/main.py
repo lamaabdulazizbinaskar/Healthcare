@@ -1,4 +1,4 @@
-"""Khutwa API. Run from backend/:  uvicorn app.main:app --reload --port 8000"""
+"""LifeStep API. Run from backend/:  uvicorn app.main:app --reload --port 8000"""
 import logging
 
 from fastapi import FastAPI
@@ -9,9 +9,9 @@ from . import config
 from .routers.api import router
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
-log = logging.getLogger("khutwa")
+log = logging.getLogger("lifestep")
 
-app = FastAPI(title="Khutwa API", version="0.1.0")
+app = FastAPI(title="LifeStep API", version="0.1.0")
 app.add_middleware(
     CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"]
 )

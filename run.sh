@@ -15,5 +15,5 @@ if [ "${SKIP_WEB_BUILD:-0}" != "1" ]; then
 fi
 
 cd backend
-echo "Khutwa running at http://localhost:8000  (Ctrl+C to stop)"
+echo "LifeStep running at http://localhost:8000  (Ctrl+C to stop)"
 exec .venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8000

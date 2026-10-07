@@ -2,7 +2,7 @@
 
 All entries: American Diabetes Association Professional Practice Committee. Standards of Care in
 Diabetes—2026. Diabetes Care 2026;49(Suppl. 1). Section 5 (S89–S131). Paraphrased by the
-Khutwa team; ADA text is not reproduced (ADA license prohibits reproduction and text/data mining).
+LifeStep team; ADA text is not reproduced (ADA license prohibits reproduction and text/data mining).
 
 ## DM-NUTR-01: A healthy eating pattern
 - source: ADA Standards of Care 2026, rec. 5.14 (B) and rec. 5.13 (B)

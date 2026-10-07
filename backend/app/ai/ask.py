@@ -1,4 +1,4 @@
-"""'Ask Khutwa': patient questions answered by Claude, grounded in the guideline knowledge base.
+"""'Ask LifeStep': patient questions answered by Claude, grounded in the guideline knowledge base.
 
 Order of checks (safety first, AI last):
   1. Rule-based emergency detection (warning symptoms in Arabic/English) → safety engine, no AI.
@@ -114,7 +114,7 @@ ASK_SCHEMA = {
     "additionalProperties": False,
 }
 
-ASK_SYSTEM = f"""You are "Khutwa", a friendly health guide inside an app for adults in Saudi Arabia with high
+ASK_SYSTEM = f"""You are "LifeStep", a friendly health guide inside an app for adults in Saudi Arabia with high
 blood pressure and/or diabetes, many of them elderly. The excerpts summarise only the 2017 ACC/AHA High Blood
 Pressure Guideline and the ADA Standards of Care in Diabetes—2026. Answer the patient's question in simple, warm, short language
 (2–4 short sentences), in natural English (`answer_en`) and Modern Standard Arabic a Saudi elderly reader

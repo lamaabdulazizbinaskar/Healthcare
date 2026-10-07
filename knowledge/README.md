@@ -1,4 +1,4 @@
-# Khutwa guidelines knowledge base
+# LifeStep guidelines knowledge base
 
 > ⚠️ **Must be verified before any real use.** Entries are short summaries **in our own words**
 > of individual recommendations, with exact section / recommendation / table numbers, so that a
@@ -13,7 +13,7 @@
 
 ### Licensing: please read
 - **Neither PDF is included in this repository**; link to the publishers instead.
-- **ADA:** "may not be reproduced, distributed, or used for text or data mining, machine learning, or similar technologies without prior written permission" (permissions@diabetes.org). Khutwa therefore **never sends ADA text to the AI**; it uses only these team-written summaries with citations. For anything beyond an educational hackathon demo, **ask ADA for permission**.
+- **ADA:** "may not be reproduced, distributed, or used for text or data mining, machine learning, or similar technologies without prior written permission" (permissions@diabetes.org). LifeStep therefore **never sends ADA text to the AI**; it uses only these team-written summaries with citations. For anything beyond an educational hackathon demo, **ask ADA for permission**.
 - **ACC/AHA:** copies, modification or distribution of the document need permission from the American College of Cardiology.
 
 ## Layout

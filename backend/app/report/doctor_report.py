@@ -62,7 +62,7 @@ def build_pdf(data: UserData, stats: dict) -> bytes:
     pdf.set_margins(15, 12, 15)
 
     pdf.set_font("Helvetica", "B", 16)
-    pdf.cell(0, 9, "Khutwa - Monthly lifestyle & home BP report", new_x="LMARGIN", new_y="NEXT")
+    pdf.cell(0, 9, "LifeStep - Monthly lifestyle & home BP report", new_x="LMARGIN", new_y="NEXT")
     pdf.set_font("Helvetica", "", 9)
     pdf.set_text_color(90, 90, 90)
     pdf.cell(
@@ -170,7 +170,7 @@ def build_pdf(data: UserData, stats: dict) -> bytes:
         0, 3.6,
         "Patient-generated data from a home BP monitor and self-reported check-ins; not verified by a clinician. "
         "Lifestyle goals are derived from the 2017 ACC/AHA High Blood Pressure Guideline and the ADA Standards of Care "
-        "in Diabetes 2026, and are meant to support, not replace, the treating physician's plan. Khutwa does not change "
+        "in Diabetes 2026, and are meant to support, not replace, the treating physician's plan. LifeStep does not change "
         "medications.",
     )
     return bytes(pdf.output())

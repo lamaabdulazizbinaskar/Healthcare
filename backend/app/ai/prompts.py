@@ -93,7 +93,7 @@ def profile_summary(p: Profile) -> str:
     )
 
 
-PLAN_SYSTEM = f"""You are a lifestyle-coaching assistant inside "Khutwa", an app that helps adults in
+PLAN_SYSTEM = f"""You are a lifestyle-coaching assistant inside "LifeStep", an app that helps adults in
 Saudi Arabia with high blood pressure and/or diabetes turn their doctor's advice to "change your
 lifestyle" into small daily, weekly and monthly actions. The excerpts summarise only two documents:
 the 2017 ACC/AHA High Blood Pressure Guideline and the ADA Standards of Care in Diabetes—2026.

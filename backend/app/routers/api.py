@@ -222,7 +222,7 @@ def safety_check(body: SymptomCheck):
     return red_flags.evaluate(body.systolic, body.diastolic, body.symptoms)
 
 
-# ---------- Ask Khutwa (AI questions, grounded) ----------
+# ---------- Ask LifeStep (AI questions, grounded) ----------
 
 class Question(BaseModel):
     question: str
@@ -327,7 +327,7 @@ def report_pdf(day: Optional[str] = None, uid: Optional[str] = None, caller: str
     pdf = build_pdf(data, tracking.monthly_stats(data, _today(day)))
     return Response(
         pdf, media_type="application/pdf",
-        headers={"Content-Disposition": 'inline; filename="khutwa-monthly-report.pdf"'},
+        headers={"Content-Disposition": 'inline; filename="lifestep-monthly-report.pdf"'},
     )
 
 

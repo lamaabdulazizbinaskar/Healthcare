@@ -149,12 +149,12 @@ def excluded(p: Profile) -> Optional[Dict[str, str]]:
             "title_ar": "يُرجى التحدث مع طبيبك أولًا",
             "message_en": (
                 "Pregnancy changes how high blood pressure and diabetes are managed, and some blood pressure "
-                "medicines must not be used in pregnancy. Khutwa is not designed for pregnancy, so we won't build "
+                "medicines must not be used in pregnancy. LifeStep is not designed for pregnancy, so we won't build "
                 "a plan. Please contact your doctor or antenatal clinic. If you have a severe headache, vision "
                 "changes or chest pain, call 997."
             ),
             "message_ar": (
-                "الحمل يغيّر طريقة علاج الضغط والسكري، وبعض أدوية الضغط لا تُستخدم أثناء الحمل. تطبيق خطوة غير "
+                "الحمل يغيّر طريقة علاج الضغط والسكري، وبعض أدوية الضغط لا تُستخدم أثناء الحمل. تطبيق خطوة حياة غير "
                 "مصمم للحمل، لذلك لن نبني خطة. يُرجى التواصل مع طبيبك أو عيادة متابعة الحمل. إذا كان لديك صداع "
                 "شديد أو تغيّر في النظر أو ألم في الصدر، اتصلي على 997."
             ),

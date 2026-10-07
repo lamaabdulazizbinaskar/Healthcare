@@ -7,7 +7,7 @@ import 'package:flutter/widgets.dart';
 import '../state/app_state.dart';
 
 const Map<String, Map<String, String>> _strings = {
-  'app_name': {'ar': 'خطوة', 'en': 'Khutwa'},
+  'app_name': {'ar': 'خطوة حياة', 'en': 'LifeStep'},
   'tagline': {
     'ar': 'خطوات يومية صغيرة لضغط وسكر أفضل',
     'en': 'Small daily steps for better blood pressure and blood sugar',
@@ -244,7 +244,7 @@ const Map<String, Map<String, String>> _strings = {
   'up_by': {'ar': 'ارتفع {n}', 'en': 'Up {n}'},
   'start': {'ar': 'البداية', 'en': 'Start'},
   'end': {'ar': 'الآن', 'en': 'Now'},
-  'welcome_title': {'ar': 'مرحبًا بك في خطوة', 'en': 'Welcome to Khutwa'},
+  'welcome_title': {'ar': 'مرحبًا بك في خطوة حياة', 'en': 'Welcome to LifeStep'},
   // History intake (asked before the plan)
   'doc_hello': {
     'ar':

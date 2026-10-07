@@ -6,7 +6,7 @@ from .. import config
 from ..diseases.rules import SRC
 from .registry import QUESTIONS, SECTIONS
 
-HEADER = """# Khutwa: what we ask, why, and what it decides
+HEADER = """# LifeStep: what we ask, why, and what it decides
 
 > Generated from `backend/app/intake/registry.py` and `backend/app/diseases/rules.py` (the same code the
 > app runs). Regenerate with `cd backend && .venv/bin/python -m app.intake.export_doc`.

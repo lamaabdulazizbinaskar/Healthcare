@@ -1,7 +1,7 @@
 # Hypertension – home monitoring, medicines, safety
 
 Source: 2017 ACC/AHA High Blood Pressure Guideline (J Am Coll Cardiol 2018;71:e127–e248).
-Paraphrased by the Khutwa team.
+Paraphrased by the LifeStep team.
 
 ## HTN-HBPM-01: Measure blood pressure at home with a validated device
 - source: 2017 ACC/AHA, Section 4.2 (out-of-office and self-monitoring of BP); Table 10 (use automated validated devices, preferably with memory)

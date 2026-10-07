@@ -13,7 +13,7 @@ import anthropic
 
 from .. import config
 
-log = logging.getLogger("khutwa.ai")
+log = logging.getLogger("lifestep.ai")
 
 _client = None
 

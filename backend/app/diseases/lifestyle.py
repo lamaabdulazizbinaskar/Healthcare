@@ -119,7 +119,7 @@ class LifestyleModule(DiseaseModule):
     def is_applicable(self, entry: GuidelineEntry, p: Profile) -> bool:
         e = entry.id
         restricted = R.activity_restricted(p)
-        # Safety knowledge / advice used by Ask Khutwa and the food guide, never checklist goals.
+        # Safety knowledge / advice used by Ask LifeStep and the food guide, never checklist goals.
         never_goals = {"HTN-WARN-01", "HTN-SLEEP-02", "HTN-MEDS-02", "DM-GLU-02", "DM-PSY-01", "DM-NUTR-09",
                        "DM-NUTR-10", "DM-DSMES-01", "DM-BP-01"}
         if e in never_goals:

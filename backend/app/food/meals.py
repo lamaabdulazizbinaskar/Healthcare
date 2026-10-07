@@ -3,7 +3,7 @@
 The meals are TEAM-AUTHORED Saudi examples (need dietitian review). Each one is tagged with the
 guideline entries whose principles it applies (ACC/AHA 2017 DASH & sodium; ADA 2026 nutrition recs),
 and rules pick meals that fit the patient's conditions and answers. No AI is needed, so it is
-fast, offline and always grounded; Ask Khutwa (AI) answers follow-up food questions.
+fast, offline and always grounded; Ask LifeStep (AI) answers follow-up food questions.
 """
 import random
 from datetime import date
@@ -156,6 +156,6 @@ def suggestions(p: Optional[Profile], day: date) -> Dict:
         "drinks": {"en": DRINKS["en"], "ar": DRINKS["ar"], "sources": _sources(DRINKS["source_ids"], p)},
         "limit": {"en": LIMIT["en"], "ar": LIMIT["ar"], "sources": _sources(LIMIT["source_ids"], p)},
         "notes": {"en": notes_en, "ar": notes_ar, "sources": _sources(note_sources, p)},
-        "authored_note_en": "Meal ideas are written by the Khutwa team to apply the guideline principles shown; a dietitian should review them.",
-        "authored_note_ar": "أفكار الوجبات من إعداد فريق خطوة لتطبيق مبادئ الإرشادات الموضحة؛ ويجب أن يراجعها أخصائي تغذية.",
+        "authored_note_en": "Meal ideas are written by the LifeStep team to apply the guideline principles shown; a dietitian should review them.",
+        "authored_note_ar": "أفكار الوجبات من إعداد فريق خطوة حياة لتطبيق مبادئ الإرشادات الموضحة؛ ويجب أن يراجعها أخصائي تغذية.",
     }

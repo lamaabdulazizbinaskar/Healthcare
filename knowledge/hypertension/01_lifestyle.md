@@ -2,7 +2,7 @@
 
 All entries: Whelton PK, Carey RM, et al. 2017 ACC/AHA/AAPA/ABC/ACPM/AGS/APhA/ASH/ASPC/NMA/PCNA
 Guideline for the Prevention, Detection, Evaluation, and Management of High Blood Pressure in
-Adults. J Am Coll Cardiol 2018;71:e127–e248. Paraphrased by the Khutwa team (not quoted).
+Adults. J Am Coll Cardiol 2018;71:e127–e248. Paraphrased by the LifeStep team (not quoted).
 
 ## HTN-SODIUM-01: Eat less sodium (salt)
 - source: 2017 ACC/AHA, Section 6.2 recommendation 3 (COR I, LOE A); Table 15 (dietary sodium)
