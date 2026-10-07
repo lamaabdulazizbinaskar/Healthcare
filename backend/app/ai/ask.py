@@ -15,7 +15,7 @@ from ..rag.knowledge_loader import GuidelineEntry
 from ..rag.retriever import search as kb_search
 from ..safety import red_flags
 from . import prompts
-from .claude_client import AIError, structured_call
+from .llm import AIError, structured_call
 
 # --- 1. emergency words → symptom ids used by the rule engine
 _EMERGENCY = {
@@ -159,7 +159,7 @@ def answer(question: str, disease: str, profile: Optional[Profile], plan_titles:
     def sources(ids: List[str]) -> List[Dict]:
         return [{"id": i, "title": by_id[i].title, "citation": by_id[i].source} for i in ids if i in by_id]
 
-    if config.AI_MODE == "claude" and entries:
+    if config.AI_ON and entries:
         try:
             r = structured_call(
                 ASK_SYSTEM,
@@ -172,7 +172,7 @@ def answer(question: str, disease: str, profile: Optional[Profile], plan_titles:
             ids = [i for i in r.get("source_ids", []) if i in by_id]  # grounding guard
             return {
                 "type": "answer",
-                "mode": "claude",
+                "mode": config.AI_MODE,
                 "answer_en": r["answer_en"],
                 "answer_ar": r["answer_ar"],
                 "sources": sources(ids),

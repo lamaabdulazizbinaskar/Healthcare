@@ -23,11 +23,16 @@ _load_dotenv(BACKEND_DIR / ".env")
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 CLAUDE_MODEL = os.environ.get("CLAUDE_MODEL", "claude-opus-5-5")
 
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
+GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
+
 _ai_mode = os.environ.get("KHUTWA_AI_MODE", "auto").lower()
 if _ai_mode == "auto":
-    AI_MODE = "claude" if ANTHROPIC_API_KEY else "mock"
+    AI_MODE = "claude" if ANTHROPIC_API_KEY else "gemini" if GEMINI_API_KEY else "mock"
 else:
-    AI_MODE = _ai_mode  # "claude" | "mock"
+    AI_MODE = _ai_mode  # "claude" | "gemini" | "mock"
+AI_ON = AI_MODE in ("claude", "gemini")
+AI_MODEL = {"claude": CLAUDE_MODEL, "gemini": GEMINI_MODEL}.get(AI_MODE, "")
 
 STORE = os.environ.get("KHUTWA_STORE", "local").lower()  # "local" | "firestore"
 AUTH = os.environ.get("KHUTWA_AUTH", "demo").lower()  # "demo" | "firebase"

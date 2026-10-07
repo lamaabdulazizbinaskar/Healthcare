@@ -10,7 +10,7 @@ from ..models import Goal, Plan, Profile, Source, now_iso
 from ..rag.knowledge_loader import GuidelineEntry
 from ..rag.retriever import get_entry, retrieve, retrieve_for_profile
 from . import mock_ai, prompts
-from .claude_client import AIError, structured_call
+from .llm import AIError, structured_call
 
 log = logging.getLogger("lifestep.plan")
 
@@ -62,7 +62,7 @@ def generate_plan(profile: Profile, start: Optional[str] = None, force_mock: boo
     goals: List[Goal] = []
     summary = {"summary_en": "", "summary_ar": ""}
     generated_by = "mock"
-    if config.AI_MODE == "claude" and not force_mock:
+    if config.AI_ON and not force_mock:
         try:
             result = structured_call(
                 prompts.PLAN_SYSTEM,
@@ -71,12 +71,12 @@ def generate_plan(profile: Profile, start: Optional[str] = None, force_mock: boo
             )
             goals = _to_goals(result.get("goals", []), entries, start)
             summary = {k: result.get(k, "").strip() for k in summary}
-            generated_by = f"claude:{config.CLAUDE_MODEL}"
+            generated_by = f"{config.AI_MODE}:{config.AI_MODEL}"
             if len(goals) < 3:
-                log.warning("Claude plan had too few grounded goals (%d); using mock plan", len(goals))
+                log.warning("AI plan had too few grounded goals (%d); using mock plan", len(goals))
                 goals = []
         except AIError as e:
-            log.error("Claude plan generation failed, falling back to mock: %s", e)
+            log.error("AI plan generation failed, falling back to mock: %s", e)
     if not goals:
         raw = mock_ai.generate_plan(profile, [e.id for e in entries], cautions)
         goals = _to_goals(raw, entries, start)
@@ -110,7 +110,7 @@ def adapt_goal(
 
     raw = None
     generated_by = "mock"
-    if config.AI_MODE == "claude" and not force_mock:
+    if config.AI_ON and not force_mock:
         try:
             raw = structured_call(
                 prompts.ADAPT_SYSTEM,
@@ -122,9 +122,9 @@ def adapt_goal(
                 prompts.GOAL_SCHEMA,
                 max_tokens=4000,
             )
-            generated_by = f"claude:{config.CLAUDE_MODEL}"
+            generated_by = f"{config.AI_MODE}:{config.AI_MODEL}"
         except AIError as e:
-            log.error("Claude adaptation failed, falling back to mock: %s", e)
+            log.error("AI adaptation failed, falling back to mock: %s", e)
     if raw is None:
         raw = mock_ai.adapt_goal(goal.model_dump(), reason)
         generated_by = "mock"

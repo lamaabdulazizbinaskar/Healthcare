@@ -21,7 +21,7 @@ app.include_router(router)
 @app.on_event("startup")
 def _startup() -> None:
     log.info("AI mode: %s (model %s) | store: %s | auth: %s",
-             config.AI_MODE, config.CLAUDE_MODEL, config.STORE, config.AUTH)
+             config.AI_MODE, config.AI_MODEL, config.STORE, config.AUTH)
     if config.STORE == "local":
         from .store import get_repository
         from seed.seed_demo import seed

@@ -109,7 +109,7 @@ class Plan(BaseModel):
     user_id: str
     disease: str
     created_at: str
-    generated_by: str  # "claude:<model>" | "mock"
+    generated_by: str  # "claude:<model>" | "gemini:<model>" | "mock"
     goals: List[Goal]
     retrieved_ids: List[str] = []
     summary_en: str = ""  # plain-language overview of the lifestyle plan

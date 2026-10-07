@@ -159,7 +159,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         ),
                       ),
                       const SizedBox(height: 16),
-                      _AiStatus(on: state.aiMode == 'claude'),
+                      _AiStatus(on: (state.aiMode == 'claude' || state.aiMode == 'gemini')),
                       const SizedBox(height: 12),
                       const DisclaimerBanner(),
                     ],
@@ -257,7 +257,7 @@ class _DoctorHeroState extends State<_DoctorHero>
   }
 }
 
-/// Shows whether the AI (Claude) is active, so it's clear in a demo.
+/// Shows whether the AI is active, so it's clear in a demo.
 class _AiStatus extends StatelessWidget {
   const _AiStatus({required this.on});
   final bool on;

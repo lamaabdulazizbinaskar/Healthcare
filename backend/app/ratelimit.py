@@ -27,7 +27,7 @@ def _client_ip(request: Request) -> str:
 
 def ai_limit(request: Request) -> None:
     """FastAPI dependency: raise 429 when the visitor or the whole app is over its AI budget."""
-    if config.AI_MODE != "claude":
+    if not config.AI_ON:
         return
     now = time.time()
     ip = _client_ip(request)

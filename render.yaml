@@ -24,3 +24,7 @@ services:
         value: "400"
       - key: ANTHROPIC_API_KEY
         sync: false   # you paste the key in the Render dashboard; never commit it
+      - key: GEMINI_API_KEY
+        sync: false   # free key from aistudio.google.com; used when ANTHROPIC_API_KEY is empty
+      - key: GEMINI_MODEL
+        value: gemini-2.5-flash

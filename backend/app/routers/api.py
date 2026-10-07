@@ -38,7 +38,7 @@ def _today(day: Optional[str]) -> date:
 
 @router.get("/health")
 def health():
-    return {"status": "ok", "ai_mode": config.AI_MODE, "model": config.CLAUDE_MODEL, "store": config.STORE}
+    return {"status": "ok", "ai_mode": config.AI_MODE, "model": config.AI_MODEL, "store": config.STORE}
 
 
 @router.get("/diseases")

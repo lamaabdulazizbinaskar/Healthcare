@@ -6,7 +6,7 @@ import '../theme.dart';
 import '../widgets/visuals.dart';
 import 'emergency_screen.dart';
 
-/// "Ask LifeStep": the patient asks a question (tap a suggestion or type); Claude answers from
+/// "Ask LifeStep": the patient asks a question (tap a suggestion or type); the AI answers from
 /// the guideline knowledge base and shows the source. Warning symptoms go to the rule engine.
 class AskScreen extends StatefulWidget {
   const AskScreen({super.key});
@@ -308,7 +308,7 @@ class _Bubble extends StatelessWidget {
                         ),
                       ),
                   ],
-                  if (message['mode'] == 'claude') ...[
+                  if ((message['mode'] == 'claude' || message['mode'] == 'gemini')) ...[
                     const SizedBox(height: 8),
                     Row(
                       children: [
