@@ -45,6 +45,11 @@ reduction ≈ −5/6 mmHg; 5–7% weight loss improves glucose), but only when i
 | 10 | **Monthly doctor report**: adherence, BP and glucose summaries, plan changes, one-page PDF. |
 | 11 | Water tracker; Arabic-first RTL UI with English; elderly-friendly design; demo patient with 4 weeks of data. |
 
+## Live demo (website)
+**Link:** _add your Render link here_ (e.g. `https://khutwa.onrender.com`). Open it and tap **Try the demo patient**.
+Hosting: `render.yaml` (Render free web service) serves the API and the pre-built website in `deploy/web/`.
+After changing the website code, run `./scripts/build_web.sh` and commit `deploy/web`.
+
 ## Quick start
 Requirements: Python 3.9+, Flutter 3.22+.
 ```bash
@@ -82,7 +87,7 @@ cd backend && .venv/bin/python -m app.intake.export_doc   # regenerate docs/INTA
 
 ```mermaid
 flowchart LR
-  subgraph FE["📱 Frontend (Flutter: web + mobile)"]
+  subgraph FE["🌐 Website (Flutter web)"]
     direction TB
     F1["Health interview (rendered from /api/intake)"]
     F2["Checklist: time-of-day groups, Now card, adapt prompts"]
@@ -153,5 +158,5 @@ Heart-failure module; Ramadan-mode plan (IDF-DAR risk score with clinician); CGM
 read-aloud; clinician dashboard; validated Arabic questionnaires.
 
 ## Tech stack
-Flutter 3 (fl_chart, image assets: Microsoft Fluent Emoji 3D – MIT; Tajawal font – OFL) · Python FastAPI ·
+Flutter 3 web (fl_chart, image assets: Microsoft Fluent Emoji 3D – MIT; Tajawal font – OFL) · Python FastAPI ·
 Anthropic Claude API · local TF-IDF retrieval · Firebase (optional) · fpdf2.

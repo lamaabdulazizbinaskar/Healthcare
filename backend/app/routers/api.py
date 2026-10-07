@@ -9,6 +9,7 @@ from pydantic import BaseModel
 from .. import config, tracking
 from ..ai import plan_engine
 from ..auth import current_user
+from ..ratelimit import ai_limit
 from ..diseases import list_modules
 from ..models import Adaptation, BPReading, GlucoseReading, Profile, UserData, now_iso
 from ..report.doctor_report import build_pdf
@@ -61,7 +62,7 @@ def intake():
     return {"sections": SECTIONS, "questions": public_questions()}
 
 
-@router.post("/onboarding")
+@router.post("/onboarding", dependencies=[Depends(ai_limit)])
 def onboarding(profile: Profile, uid: str = Depends(current_user)):
     """Save the profile and generate the first plan in one step (fewer screens for elderly users)."""
     profile.user_id = uid
@@ -105,7 +106,7 @@ def set_language(body: LanguageUpdate, uid: str = Depends(current_user)):
     return {"ok": True}
 
 
-@router.post("/plan/regenerate")
+@router.post("/plan/regenerate", dependencies=[Depends(ai_limit)])
 def regenerate(uid: str = Depends(current_user)):
     data = _load(uid)
     if not data.profile:
@@ -165,7 +166,7 @@ class AdaptRequest(BaseModel):
     day: Optional[str] = None
 
 
-@router.post("/adapt/{goal_id}")
+@router.post("/adapt/{goal_id}", dependencies=[Depends(ai_limit)])
 def adapt(goal_id: str, body: AdaptRequest, uid: str = Depends(current_user)):
     data = _load(uid)
     _require_plan(data)
@@ -227,7 +228,7 @@ class Question(BaseModel):
     question: str
 
 
-@router.post("/ask")
+@router.post("/ask", dependencies=[Depends(ai_limit)])
 def ask(body: Question, uid: str = Depends(current_user)):
     from ..ai.ask import answer
 

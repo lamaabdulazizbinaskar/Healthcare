@@ -2,7 +2,7 @@ fastapi>=0.110
 uvicorn[standard]>=0.29
 pydantic>=2.6
 python-multipart>=0.0.9
-anthropic>=0.60
+anthropic>=0.60,<1  # tested with 0.125; 1.x changes the client API
 fpdf2>=2.7
 # Optional: only needed when KHUTWA_STORE=firestore or KHUTWA_AUTH=firebase
 # firebase-admin>=6.5

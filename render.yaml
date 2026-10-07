@@ -1,0 +1,26 @@
+# Render Blueprint: one free web service that serves the API and the pre-built Flutter web app.
+# Deploy: Render dashboard -> New -> Blueprint -> pick this GitHub repo.
+services:
+  - type: web
+    name: khutwa
+    runtime: python
+    plan: free
+    region: frankfurt
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"
+      - key: KHUTWA_WEB_DIR
+        value: ../deploy/web
+      - key: KHUTWA_AI_MODE
+        value: auto
+      - key: CLAUDE_MODEL
+        value: claude-opus-5-5
+      - key: KHUTWA_AI_PER_HOUR
+        value: "20"
+      - key: KHUTWA_AI_PER_DAY
+        value: "400"
+      - key: ANTHROPIC_API_KEY
+        sync: false   # you paste the key in the Render dashboard; never commit it
